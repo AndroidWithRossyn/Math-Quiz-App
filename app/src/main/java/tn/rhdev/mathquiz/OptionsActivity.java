@@ -7,7 +7,6 @@ import android.os.PowerManager;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -17,16 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-
 import tn.rhdev.mathquiz.utils.CheckBackground;
-import tn.rhdev.mathquiz.utils.Constant;
 
 
 public class OptionsActivity extends FragmentActivity {
@@ -34,7 +27,7 @@ public class OptionsActivity extends FragmentActivity {
     SharedPreferences sp;
     SharedPreferences.Editor ed;
     Switch soundMode;
-    AdView adMob_banner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,19 +35,18 @@ public class OptionsActivity extends FragmentActivity {
 
         // fullscreen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        adLayout = (LinearLayout) findViewById(R.id.adVieww);
-        add_admob_banner(adLayout);
+
         ImageView back =  findViewById(R.id.img_back);
         // preferences
         sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         ed = sp.edit();
-        TextView ttitle =  findViewById(R.id.title);
+//        TextView ttitle =  findViewById(R.id.title);
         TextView sound =  findViewById(R.id.sound);
         soundMode = (Switch) findViewById(R.id.sound_mode);
 
 
 
-        /*********************************************************************/
+
 
         boolean backgroundMusic = sp.getBoolean("play",false);
         if (backgroundMusic) {
@@ -141,22 +133,6 @@ public class OptionsActivity extends FragmentActivity {
         return false;
     }
 
-    // add_admob_smart
-    void add_admob_banner(LinearLayout adLayout) {
-        if (Constant.show_admob_banner
-                && ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo() != null) {
-            adMob_banner = new AdView(this);
-            adMob_banner.setAdSize(AdSize.SMART_BANNER);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adMob_banner.setAdUnitId(Constant.adMob_key_banner);
-            adMob_banner.loadAd(new AdRequest.Builder().build());
-            adLayout.addView(adMob_banner);
-            adMob_banner.loadAd(adRequest);
-        }//if
-        else {
-            adLayout.setVisibility(View.GONE);
-        }
 
-    }//add_admob_smart
 
 }

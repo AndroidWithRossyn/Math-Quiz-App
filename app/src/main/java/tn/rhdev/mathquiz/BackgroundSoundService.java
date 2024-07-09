@@ -7,10 +7,11 @@ import android.media.MediaPlayer;
 import android.os.IBinder;
 
 public class BackgroundSoundService extends Service {
+
     private static final String TAG = null;
     static MediaPlayer player;
-    public IBinder onBind(Intent arg0) {
 
+    public IBinder onBind(Intent arg0) {
         return null;
     }
     @Override

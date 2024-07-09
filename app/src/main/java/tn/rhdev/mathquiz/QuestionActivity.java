@@ -1,8 +1,6 @@
 package tn.rhdev.mathquiz;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import android.annotation.SuppressLint;
@@ -11,31 +9,19 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import tn.rhdev.mathquiz.utils.Constant;
 import tn.rhdev.mathquiz.utils.CustomDialogClass;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-
-public class QuestionActivity extends Activity  implements RewardedVideoAdListener{
+public class QuestionActivity extends Activity {
     List<Question> quesList;
     static int  score = 0;
     int qid = 0;
@@ -44,7 +30,7 @@ public class QuestionActivity extends Activity  implements RewardedVideoAdListen
     Question currentQ;
     TextView txtQuestion, times, scored;
     Button button1, button2, button3;
-    private RewardedVideoAd mAd;
+
     public static Context contextstat;
    public static ProgressDialog pDialog ;
 
@@ -112,8 +98,7 @@ public class QuestionActivity extends Activity  implements RewardedVideoAdListen
             }
         });
 
-        mAd = MobileAds.getRewardedVideoAdInstance(this);
-        mAd.setRewardedVideoAdListener(this);
+
 
         contextstat=QuestionActivity.this;
         pDialog= new ProgressDialog(QuestionActivity.this);
@@ -126,11 +111,6 @@ public class QuestionActivity extends Activity  implements RewardedVideoAdListen
 
     public static int getMyValue(){return score;}
 
-    public  void loadRewardedVideo() {
-            mAd.loadAd(Constant.rewarded_ad_id,
-                    new AdRequest.Builder()
-                            .build());
-    }
 
     public void getAnswer(String AnswerString) {
         if (currentQ.getANSWER().equals(AnswerString)) {
@@ -266,56 +246,7 @@ public class QuestionActivity extends Activity  implements RewardedVideoAdListen
 
 
 
-    @Override
-    public void onRewardedVideoAdLoaded() {
-        try {
-            if (mAd.isLoaded()) {
-                pDialog.hide();
-                mAd.show();
-            }
-            pDialog.hide();
 
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-            pDialog.hide();
-        }
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        CounterClass timer = new CounterClass(Constant.reward_time_inseconds*1000, 1000);
-        timer.start();
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-    }
 
 
 

@@ -6,31 +6,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-
-import java.security.Policy;
 
 import tn.rhdev.mathquiz.utils.CheckBackground;
-import tn.rhdev.mathquiz.utils.Constant;
 
 
 public class MainActivity extends Activity {
@@ -38,7 +24,7 @@ public class MainActivity extends Activity {
     public static String PACKAGE_NAME;
     SharedPreferences sp;
     SharedPreferences.Editor ed;
-    AdView adMob_banner;
+
     LinearLayout adLayout;
     RelativeLayout bgnim,bgnim2;
     @Override
@@ -74,8 +60,6 @@ public class MainActivity extends Activity {
             startActivity(intentnew);
         });
 
-        adLayout = (LinearLayout) findViewById(R.id.adVieww);
-        add_admob_banner(adLayout);
 
 
 
@@ -161,64 +145,32 @@ public class MainActivity extends Activity {
 
     // onClick
     public void onClick(View v) {
-        switch (v.getId()) {
-
-
-            case R.id.btn_options:
-                Intent intentnew=new Intent(this,OptionsActivity.class);
-                startActivity(intentnew);
-                break;
-            case R.id.img_politics:
-                Intent intentpolitics=new Intent(this, PrivacyActivity.class);
-                startActivity(intentpolitics);
-                break;
-
-
-            case R.id.btn_quit:
-                finish();
-                break;
-
-            case R.id.img_share:
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_msg) + getPackageName());
-                sendIntent.setType("text/plain");
-                startActivity(sendIntent);
-                stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
-                break;
-
-            case R.id.img_more:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.play_more_apps))));
-                stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
-                break;
-
-            case R.id.img_rate:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
-                stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
-                break;
-
-
-
+        int id = v.getId();
+        if (id == R.id.btn_options) {
+            Intent intentnew = new Intent(this, OptionsActivity.class);
+            startActivity(intentnew);
+        } else if (id == R.id.img_politics) {
+            Intent intentpolitics = new Intent(this, PrivacyActivity.class);
+            startActivity(intentpolitics);
+        } else if (id == R.id.btn_quit) {
+            finish();
+        } else if (id == R.id.img_share) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.share_msg) + getPackageName());
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+            stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
+        } else if (id == R.id.img_more) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.play_more_apps))));
+            stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
+        } else if (id == R.id.img_rate) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+            stopService(new Intent(getApplicationContext(), BackgroundSoundService.class));
         }
     }
 
 
 
-    // add_admob_smart
-    void add_admob_banner(LinearLayout adLayout) {
-        if (Constant.show_admob_banner
-                && ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo() != null) {
-            adMob_banner = new AdView(this);
-            adMob_banner.setAdSize(AdSize.SMART_BANNER);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adMob_banner.setAdUnitId(Constant.adMob_key_banner);
-            adMob_banner.loadAd(new AdRequest.Builder().build());
-            adLayout.addView(adMob_banner);
-            adMob_banner.loadAd(adRequest);
-        }//if
-        else {
-            adLayout.setVisibility(View.GONE);
-        }
 
-    }//add_admob_smart
 }
