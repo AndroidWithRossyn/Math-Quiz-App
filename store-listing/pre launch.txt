@@ -1,0 +1,29 @@
+Q1 did you ask friends..
+
+I chose my developer friends for testers.
+
+
+Q Describe the engagement you recevied from testers during your closed tes
+
+During closed testing, we received highly constructive feedback from testers.
+They praised the user-friendly interface and fast performance, and reported minor bugs.
+
+
+Q how to collect feedback
+Testers found "MathWhiz: Brain Training" engaging and enjoyed the variety of puzzles, which kept them motivated and challenged throughout the testing phase.
+
+Q Intended Audience 
+The app is aimed at individuals of all ages who enjoy brain teasers and want to improve their math skills and cognitive abilities.
+
+Q describe how your app provides values to users
+"MathWhiz: Brain Training" offers value by providing fun and challenging puzzles that enhance mathematical skills, boost cognitive functions, and provide a stimulating mental workout.
+
+
+Q what changes did you learn durig
+
+Testing revealed areas for improvement, such as adjusting puzzle difficulty and enhancing user interface elements for a more intuitive experience.
+
+Q how to decide that app is ready
+The app is deemed ready for production when it meets quality standards, shows stable performance, receives positive feedback from testers, and addresses all identified issues and improvements.
+
+

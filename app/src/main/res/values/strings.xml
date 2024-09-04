@@ -1,10 +1,16 @@
 <resources>
-    <string name="app_name">Math Quiz</string>
+    <string name="app_name">MathWhiz</string>
+
+    <string name="Googleplay_games_App_ID" translatable="false">480826555104</string>
+
     <string name="play">Play</string>
     <string name="options">Options</string>
     <string name="quit">Exit</string>
     <string name="share_msg">Share our awsome app \n https://play.google.com/store/apps/details?id=</string>
-    <string name="play_more_apps">https://play.google.com/store/apps/dev?id=</string>
+    <!--    console url-->
+    <string name="play_more_apps">https://play.google.com/store/apps/dev?id=9018625225145144764</string>
+
+    <string name="privacy_policy">https://satyamltd.blogspot.com/2024/07/privacy-policy.html</string>
     <string name="easy">EASY </string>
     <string name="hard">HARD </string>
     <string name="sound">Music </string>

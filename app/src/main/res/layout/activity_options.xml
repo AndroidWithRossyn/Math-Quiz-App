@@ -48,7 +48,7 @@
             android:checked="false"
             android:thumb="@drawable/button_switch"
             android:track="@drawable/switch_bg"
-            />
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
     </LinearLayout>
 
 

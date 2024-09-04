@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "771132051692",
+    "project_id": "mathwhiz-brain-training",
+    "storage_bucket": "mathwhiz-brain-training.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771132051692:android:6a4467750e9fb9e8a4d5c9",
+        "android_client_info": {
+          "package_name": "com.satyamltd.braintest.mathquiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBobvqFRA085YzEpcMl6JLfIAHBvbdu4Lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
