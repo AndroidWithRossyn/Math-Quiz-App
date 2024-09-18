@@ -1,0 +1,27 @@
+Q. Did somebody register this developer account on your behalf? If so, please explain why. *
+
+
+- I registered this account myself to ensure full control and responsibility for my app development and publication processes.
+
+Does your app function differently based on a user’s geolocation or language? If yes, why? *
+
+No, our app does not function differently based on a user’s geolocation or language.
+
+
+no third party intellectual property appers in my app
+
+i do not have any content locked behind a login wall.
+
+What SDKs does your app use and why? *
+
+play.services.ads: Integrates Google Ads for monetization.
+play.services.games: Supports Google Play Games features like leaderboards.
+play.services.auth: Authentication services, e.g., Google Sign-In.
+play.services.analytics: Tracks user behavior and app performance.
+firebase.bom: Manages Firebase library versions.
+
+Explain how you ensure that any 3rd party code and SDKs used in your app comply with our policies. *
+
+
+- ans 
+I am not using the third-party SDK in the app, I am fully committed to ensuring privacy for my users, ensuring that no personal data of any kind is being collected.
